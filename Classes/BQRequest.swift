@@ -1,8 +1,8 @@
 // *******************************************
-//  File Name:      BQRequest.swift       
+//  File Name:      BQRequest.swift
 //  Author:         MrBai
 //  Created Date:   2019/11/12 4:16 PM
-//    
+//
 //  Copyright © 2019 baiqiang
 //  All rights reserved
 // *******************************************
@@ -21,17 +21,20 @@ public protocol BQRequest {
     //自定义实现
     static var hostName: String { get }
     static var urlPath: String { get }
-
-    //默认实现
+    static func willSendRequest(url: String, params:[String:Any]?, header:[String:String]?)
+    static func receiveResponse(data: Data?)
+    
+    //选择实现
     static var method: RequestMethod { get }
     
+    //默认实现
     static func request(_ handle: @escaping (Any?, Error?) -> Void)
     static func request(params:[String: Any]?, _ handle: @escaping (Any?, Error?) -> Void)
     static func request(headers: [String:String]?, _ handle: @escaping (Any?, Error?) -> Void)
     static func request(params:[String: Any]?, headers: [String:String]?, _ handle: @escaping (Any?, Error?) -> Void)
 }
 
-extension BQRequest {
+public extension BQRequest {
         
     static var method: RequestMethod {
         return .get
@@ -64,12 +67,13 @@ extension BQRequest {
             requestType = .delete
         }
         
-        print(" url => \(url)\n headers => \(headers ?? [:]) \n params => \(params ?? [:])")
+        Self.willSendRequest(url: url, params: params, header: headers)
         
         Alamofire.request(url, method: requestType, parameters: params, headers: headers).response { (response) in
-
+            
+            Self.receiveResponse(data: response.data)
+            
             if let err = response.error {
-                print("request has error: \(err.localizedDescription)")
                 handle(nil,err)
             } else if let data = response.data {
                 do {
@@ -78,11 +82,8 @@ extension BQRequest {
                 } catch let err {
                     print(err.localizedDescription)
                     handle(nil,err)
-                    print(String(data: data, encoding: .utf8) ?? "con't transfrom to json object")
                 }
                 
-            } else {
-                print("has no resposeInfo!")
             }
         }
     }

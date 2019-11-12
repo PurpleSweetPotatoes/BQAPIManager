@@ -18,4 +18,12 @@ extension BQRequest {
     static var hostName: String {
         return HostType.MyServer.rawValue
     }
+    
+    static func willSendRequest(url: String, params:[String:Any]?, header:[String:String]?) {
+        
+    }
+    
+    static func receiveResponse(data: Data?) {
+        
+    }
 }
