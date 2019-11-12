@@ -13,7 +13,7 @@ import Foundation
 struct MetroReq: BQRequest {
 
     static var urlPath: String {
-        return ""
+        return "metro"
     }
  
 }

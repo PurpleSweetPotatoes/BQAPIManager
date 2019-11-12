@@ -20,10 +20,10 @@ extension BQRequest {
     }
     
     static func willSendRequest(url: String, params:[String:Any]?, header:[String:String]?) {
-        
+        print(" url ==> \(url) \n params ==> \(params) \n header ==> \(header)")
     }
     
     static func receiveResponse(data: Data?) {
-        
+        print("接收完成")
     }
 }

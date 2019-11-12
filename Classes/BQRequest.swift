@@ -36,23 +36,23 @@ public protocol BQRequest {
 
 public extension BQRequest {
         
-    static var method: RequestMethod {
+    public static var method: RequestMethod {
         return .get
     }
     
-    static func request(_ handle: @escaping (Any?, Error?) -> Void) {
+    public static func request(_ handle: @escaping (Any?, Error?) -> Void) {
         self.request(params: nil, headers: nil, handle)
     }
     
-    static func request(params:[String: Any]?, _ handle: @escaping (Any?, Error?) -> Void) {
+    public static func request(params:[String: Any]?, _ handle: @escaping (Any?, Error?) -> Void) {
         self.request(params: params, headers: nil, handle)
     }
     
-    static func request(headers: [String:String]?, _ handle: @escaping (Any?, Error?) -> Void) {
+    public static func request(headers: [String:String]?, _ handle: @escaping (Any?, Error?) -> Void) {
         self.request(params: nil, headers: headers, handle)
     }
     
-    static func request(params:[String: Any]?, headers: [String:String]?, _ handle: @escaping (Any?, Error?) -> Void) {
+    public static func request(params:[String: Any]?, headers: [String:String]?, _ handle: @escaping (Any?, Error?) -> Void) {
         let url = hostName + urlPath
 
         var requestType: HTTPMethod
