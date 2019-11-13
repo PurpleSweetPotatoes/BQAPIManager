@@ -5,14 +5,16 @@
 # @Email   : 568604944@qq.com
 
 echo '*** 开始操作 ***'
-git add .
-if [[ $1 ]]; then
-    git cm "$1"
+
+if [[ ! -n $1 ]]; then
+    echo '*** 需要一个版本号 ***'
 else 
-    git cm "无描述提交"
+    git add .
+    git cm "更新tag $1"
+    git tag -d "$1"
+    git tag "$1"
+    git push origin :refs/tags/"$1"
+    git push 
+    git push --tag
 fi
 
-git tag -d 0.0.1
-git push origin :refs/tags/0.0.1
-git push 
-git push --tags
