@@ -17,4 +17,3 @@ else
     git push 
     git push --tag
 fi
-
