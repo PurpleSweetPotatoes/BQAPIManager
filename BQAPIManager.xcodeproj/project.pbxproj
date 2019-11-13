@@ -16,6 +16,7 @@
 		E27C15F4237A8C05001F6000 /* MetroReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C15F3237A8C05001F6000 /* MetroReq.swift */; };
 		E27C15F6237AA1D6001F6000 /* BQRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C15F5237AA1D6001F6000 /* BQRequest.swift */; };
 		E27C15F8237AA209001F6000 /* BQRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27C15F7237AA209001F6000 /* BQRequest+Extension.swift */; };
+		E2D6FD7F237B980200D2EB60 /* BQLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D6FD7E237B980200D2EB60 /* BQLogger.swift */; };
 		E4C2482340D9BA33FD83751F /* Pods_BQAPIManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F5A5947DBDF85C6E66C3C4 /* Pods_BQAPIManager.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		E27C15F3237A8C05001F6000 /* MetroReq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroReq.swift; sourceTree = "<group>"; };
 		E27C15F5237AA1D6001F6000 /* BQRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BQRequest.swift; sourceTree = "<group>"; };
 		E27C15F7237AA209001F6000 /* BQRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BQRequest+Extension.swift"; sourceTree = "<group>"; };
+		E2D6FD7E237B980200D2EB60 /* BQLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BQLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		E27C15ED237A8322001F6000 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E2D6FD7E237B980200D2EB60 /* BQLogger.swift */,
 				E27C15F5237AA1D6001F6000 /* BQRequest.swift */,
 			);
 			path = Classes;
@@ -236,6 +239,7 @@
 				E27C15DE237A8089001F6000 /* ViewController.swift in Sources */,
 				E27C15DA237A8089001F6000 /* AppDelegate.swift in Sources */,
 				E27C15DC237A8089001F6000 /* SceneDelegate.swift in Sources */,
+				E2D6FD7F237B980200D2EB60 /* BQLogger.swift in Sources */,
 				E27C15F6237AA1D6001F6000 /* BQRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
